@@ -1,0 +1,9 @@
+-- Adicionando dados em vacinas com datas de Vencimento passadas para ver se o View está funcionando corretamente
+INSERT INTO Vacina (CD, doença, lote, dataVencimento, dose, dataAplicação, CDFabricante)
+VALUES
+(50010, 'COVID-19', 'L15344', '2020-12-31', 1, '2019-06-01', 40001),
+(50007, 'COVID-19', 'S64320', '2024-01-31', 2, '2020-06-01', 40002),
+(50008, 'Gripe', 'G12221', '2014-10-15', 1, '2013-09-15', 40003),
+(50009, 'Hepatite B', 'HB832', '2003-05-20', 1, '2001-05-20', 40004);
+
+

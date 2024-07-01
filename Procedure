@@ -1,26 +1,27 @@
-
 CREATE PROCEDURE PacientesComVacinasVencidas AS
 BEGIN
-    SELECT 
+    SELECT
         p.CPF,
         p.nome AS NomePaciente,
         p.dataNascimento AS DataNascimento,
         p.contato AS Contato,
         v.doença AS Doença,
-        va.dataAplicação AS DataAplicação, 
+        va.dataAplicação AS DataAplicação,
         v.dataVencimento AS DataVencimento
-    FROM 
-        Vacina va
-    INNER JOIN 
+    FROM
+        Vacinação va
+    INNER JOIN
         Vacina v ON va.CDVacina = v.CD
-    INNER JOIN 
+    INNER JOIN
         Paciente pa ON va.CDPaciente = pa.CD
-    INNER JOIN 
+    INNER JOIN
         Pessoa p ON pa.PessoaCPF = p.CPF
-    WHERE 
-        va.dataAplicação > v.dataVencimento 
-    ORDER BY 
-        p.nome, va.dataAplicação; 
+    WHERE
+        va.dataAplicação > v.dataVencimento
+    ORDER BY
+        p.nome, va.dataAplicação;
 END;
 GO
+
+-- Executar o procedimento armazenado
 EXEC PacientesComVacinasVencidas;
